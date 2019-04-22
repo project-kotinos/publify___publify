@@ -10,12 +10,12 @@ namespace :demo do
 
     Rails.application.load_seed
 
-    text_filter = TextFilter.find_by name: 'markdown'
+    text_filter = 'markdown'
     user = User.create!(name: 'Admin',
                         login: 'admin',
                         email: 'admin@example.com',
                         password: 'admin123',
-                        text_filter: text_filter)
+                        text_filter_name: text_filter)
     blog = Blog.first
     blog.update!(base_url: ENV['BASE_URL'].to_s,
                  blog_name: 'Publify Demo')
@@ -29,7 +29,7 @@ namespace :demo do
                              login: 'demo',
                              name: 'Demo Publisher',
                              password: 'demo1234',
-                             text_filter: text_filter,
+                             text_filter_name: text_filter,
                              profile: 'publisher')
   end
 end
