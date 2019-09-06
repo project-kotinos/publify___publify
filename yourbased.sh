@@ -5,6 +5,7 @@ export RAILS_ENV=test
 apt-get update && apt-get install -y tzdata
 gem install bundler -v 2.0.1
 # install
+bundle update spring
 bundle install --jobs=3 --retry=3
 # before_script
 cp config/database.yml.$DB config/database.yml
