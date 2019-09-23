@@ -10,4 +10,4 @@ bundle install --jobs=3 --retry=3
 cp config/database.yml.$DB config/database.yml
 bundle exec rake db:create db:migrate
 # script
-bundle exec rake
+bundle exec rake --trace spec
