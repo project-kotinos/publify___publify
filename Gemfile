@@ -3,7 +3,8 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 5.2.3"
-
+gem "yourbase-rspec-skipper"
+gem "rspec"
 gem "mysql2"
 gem "pg"
 gem "sqlite3", "~> 1.4.0"
