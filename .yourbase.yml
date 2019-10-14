@@ -1,0 +1,24 @@
+build_targets:
+- commands:
+  - apt-get update
+  - apt-get install -y tzdata
+  - gem install bundler -v 2.0.1
+  - bundle install --jobs=3 --retry=3
+  - cp config/database.yml.sqlite config/database.yml
+  - bundle exec rake db:create db:migrate
+  - bundle exec rake --trace spec
+  container:
+    image: yourbase/yb_ubuntu:16.04
+  name: default
+  environment:
+  - DB=sqlite
+  - DEBIAN_FRONTEND=noninteractive
+  - RAILS_ENV=test
+ci:
+  builds:
+  - build_target: default
+    name: default
+dependencies:
+  build:
+  - ruby:2.6.3
+  - node:10.15.1
